@@ -62,7 +62,7 @@ endpoints available  <server url>/docs
 
 # Screenshot
 
-![Screenshot 2024-10-23 at 18 09 55](https://github.com/user-attachments/assets/abd57ecf-2c95-4e04-829a-b964d3b7c48d)
 
+![Uploading imageapi_screenshot.png…]()
 
 
