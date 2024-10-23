@@ -63,6 +63,6 @@ endpoints available  <server url>/docs
 # Screenshot
 
 
-![Uploading imageapi_screenshot.png…]()
 
 
+![imageapi_screenshot](https://github.com/user-attachments/assets/fa7bddbc-705b-4c25-a423-156a78cb79ae)
