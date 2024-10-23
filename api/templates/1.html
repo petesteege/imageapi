@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album Cover</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Garet:wght@400;700&display=swap');
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222;
+            font-family: 'Garet', sans-serif;
+            color: #fff;
+        }
+        .cover {
+            position: relative;
+            width: 1400px;
+            height: 1400px;
+            background-image: url('https://myserver.com/background_image.png');
+            background-size: cover;
+            background-position: center;
+        }
+        .top-margin, .bottom-margin {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            z-index: 1;
+        }
+        .top-margin {
+            top: 0;
+            height: 41px;
+        }
+        .bottom-margin {
+            bottom: 0;
+            height: 166px;
+        }
+        .artist-name, .track-title, .logo, .album-id, .copyright1, .unsplash {
+            position: absolute;
+            z-index: 2;
+        }
+        .artist-name {
+            font-size: 69px;
+            color: white;
+            right: 57px;
+            top: 100px;
+            text-align: right;
+        }
+        .track-title {
+            font-size: 100px;
+            color: white;
+            right: 57px;
+            top: 184px;
+            line-height: 1.1;
+            text-align: right;
+        }
+        .logo {
+            font-size: 36px;
+            color: #d9d9d9;
+            bottom: 270px;
+            left: 71px;
+            line-height: 1.2;
+            text-align: left;
+        }
+        .album-id {
+            font-size: 32px;
+            color: #d9d9d9;
+            bottom: 270px;
+            right: 57px;
+            text-align: right;
+        }
+        .copyright1 {
+            font-size: 17px;
+            color: #a6a6a6;
+            bottom: 99px;
+            right: 57px;
+            text-align: right;
+            font-weight: 300;
+        }
+        .unsplash {
+            font-size: 17px;
+            color: #545454;
+            bottom: 60px;
+            right: 57px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="cover">
+        <div class="top-margin"></div>
+        <div class="bottom-margin"></div>
+        <div class="artist-name">{{artist_name}}</div>
+        <div class="track-title">{{track_title}}<br></div>
+        <div class="logo">MUSIC<br>ARTIST<br>TEXT</div>
+        <div class="album-id">SYNC TRACK // SGL00057 / SYNC CATALOGUE</div>
+        <div class="copyright1">
+            COPYRIGHT (C) SOME ARTIST 2024, ALL RIGHTS RESERVED<br>
+            HTTP://WWW.MYMUSICARTIST.COM/MUSIC / PRODUCTION DATE - 2024
+        </div>
+        <div class="unsplash">IMAGE COURTESY OF UNSPLASH.COM (C)</div>
+    </div>
+</body>
+</html>

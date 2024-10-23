@@ -1,0 +1,111 @@
+body, html {
+    margin: 0;
+    padding: 0 !important;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+#header {
+    width: 100%;
+    height: var(--header-height);
+    background-color:var(--main-col);
+    border-bottom: var(--border-px) solid var(--margin-colour);
+    color: var(--font-col);
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    
+}
+
+#header-text {
+    font-size: 15px;
+    margin-left: 52px;
+}
+
+
+#html-editor-sub, #json-editor-sub {
+    height: var( --header-sub-height);
+    background-color: var(--main-col);
+    color: rgb(198, 198, 198) !important;
+    font-size: var(--sub-header-font-size);
+    align-items: middle;
+    display:flex;
+    align-items:center;
+    padding-left: 55px;
+}
+
+#container {
+    display: flex;
+    height: calc(100vh - ( var(--header-height) - var(--border-px) )); /* Full height minus header */
+    margin-top: var(--header-height); /* Space for header */
+}
+
+#q1, #q2, #q3, #q4 {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important;
+    padding: 0 !important;  
+}
+
+#q1 { background-color: #131313; }
+#q2 { background-color: #131313; }
+#q3 { background-color: #131313; }
+#q4 { background-color: #131313; }
+
+
+
+#left-half {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+    border-right: 5px solid#1c1c1c;
+}
+
+#right-half {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#q1 {
+    height:  var(--divider-position-left) ; /* Subtract 20px from the variable */
+}
+
+#q2 {
+    height: calc(100% - var(--divider-position-left) - var(--border-px ) ); /* Bottom adjusts based on top */
+}
+
+#q3 {
+    height: var(--divider-position-right); /* Right half top section */
+}
+
+#q4 {
+    height: calc(100% - var(--divider-position-right) - var(--border-px ) ); /* Right half bottom section */
+}
+
+.divider {
+    height: 5px;
+    background-color: var(--margin-colour);
+    cursor: row-resize;
+    margin: 0;
+}
+
+
+img#logo {
+    height: 80%;
+    width: auto;
+    margin-left:54px;
+
+
+}

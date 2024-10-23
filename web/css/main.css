@@ -1,0 +1,14 @@
+:root {
+    --header-height: 80px;
+    --header-sub-height: 30px;
+    --divider-position-left: 80%; /* Initial divider position between top and bottom in left half */
+    --divider-position-right: 70%; /* Initial divider position between top and bottom in right half */
+    --sub-header-font-size:14px;
+
+    --margin-colour:#2A2A2A;
+    --main-col:#131313;
+    --main-col-light:#181818;
+    --border-px:1px;
+    --font-col: rgb(217, 217, 217);
+    
+}

@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  imageapi:
+    container_name: imageapi
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    env_file:
+      - .env
+    environment:
+      - SERVICE_ROLE=imageapi
+      - PYTHONPATH=/usr/local/lib/python3.9/dist-packages/debugpy/_vendored/pydevd/pydevd_attach_to_process/
+      - PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+      - FILE_PREFIX=cover_art_
+    ports:
+      - 8000:8000
+
+  webgui:
+    container_name: webgui
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    env_file:
+      - .env
+    environment:
+      - SERVICE_ROLE=webgui
+    ports:
+      - 8443:80
+    depends_on:
+      - imageapi

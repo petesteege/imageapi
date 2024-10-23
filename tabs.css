@@ -1,0 +1,36 @@
+
+
+
+#q4, .tabbed-section, #tabbed-section{
+    background-color: var(--main-col);
+    color: var(--font-col);
+    height:100%;
+}
+
+
+.tabs {
+ background-color:var(--main-col-light);
+ border-bottom: var(--border-px) solid var(--margin-colour);
+ height: 35px;
+ display:block;
+
+    
+}
+
+.button {
+
+    background-color: var(--main-col-light);
+    border: 1px solid var(--margin-colour);
+    color: var(--font-col);
+    height:100%;
+    width: 15%;
+    float:left;
+    z-index: 100;
+
+}
+
+.tabs button.active {
+    background: var(--main-col);
+    border-bottom:5px solid var(--main-col);
+    color: white;;
+}

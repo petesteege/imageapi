@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album Cover</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Garet:wght@400;700&display=swap');
+
+        :root {
+            --col1-width: 46%;
+            --col2-width: 9%;
+            --col3-width: 44%;
+            --col4-width: 4%;
+            --line1: 0px;       
+            --line2: 250px;     
+            --line3: 305px;     
+            --line4: 330px;     
+            --line5: 380px;     
+            --line6: 700px;     
+
+            --font-size-album-id: 32px;
+            --font-size-copyright: 14px;
+            --font-size-proddate: 14px;
+            --font-size-artworkcopy: 14px;
+            --font-size-artist-name: 69px;
+            --font-size-track-title: 80px;
+            
+            --font-colour:{{font_col}};
+            --Back-colour:{{back_col}};
+            --track-colour:{{track_col}};
+        }
+        
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: var(--Back-colour);
+            font-family: 'Garet', sans-serif !important;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url({{back_url}});
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5; /* Adjust opacity here */
+            z-index: 1; /* Below other content */
+        }
+
+        .cover {
+            position: relative;
+            width: 1400px;
+            height: 1400px;
+            display: flex;
+            margin: 60px;
+            z-index: 2; /* Above the background */
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            margin-top: 210px; /* Top margin */
+            margin-bottom: 50px; /* Bottom margin */
+            width: var(--col1-width); /* Use variable for width */
+        }
+
+        .album-id, .copyright, .proddate, .artworkcopy, .logo, .webaddress {
+            text-transform: uppercase; /* Make text uppercase */
+            color: var(--font-colour);
+        }
+
+        .artist-name, .track-title {
+            text-transform: capitalize; /* Capitalize specific text */
+            color: var(--track-colour);
+        }
+
+        .album-id, .copyright, .proddate, .artworkcopy, .artist-name, .track-title {
+            text-align: right;
+            position: absolute; /* Keep it absolute */
+            right: 0; /* Align to the right */
+        }
+
+        .album-id {
+            height: 160px;
+            font-size: var(--font-size-album-id);
+            top: var(--line1); /* Use variable for top position */
+            width: 50%; /* Adjust width as needed */
+        }
+
+        .copyright {
+            height: 50px;
+            font-size: var(--font-size-copyright);
+            top: var(--line2); /* Use variable for top position */
+            width: 60%; /* Adjust width as needed */
+        }
+
+        .proddate {
+            height: 20px;
+            top: var(--line3); /* Use variable for top position */
+            width: 50%; /* Adjust width as needed */
+        }
+
+        .artworkcopy {
+            height: 40px;
+            top: var(--line4); /* Use variable for top position */
+            width: 100%; /* Adjust width as needed */
+        }
+
+        .artist-name {
+            height: 260px; /* Keep the same height */
+            font-size: var(--font-size-artist-name);
+            top: var(--line5); /* Original vertical position */
+            width: 60%; /* Keep the same width */
+            position: absolute; /* Keep it absolute */
+            right: 0; /* Align to the right */
+            display: flex; /* Use flexbox to control alignment */
+            align-items: flex-end; /* Align text to the bottom */
+            justify-content: flex-end; /* Justify text to the right */
+            text-align: right; /* Ensure text is right-aligned */
+        }
+
+
+
+
+        .track-title {
+            height: 425px;
+            font-size: var(--font-size-track-title);
+            top: var(--line6); /* Use variable for top position */
+            width: 100%; /* Adjust width as needed */
+            overflow: hidden; /* Prevent overflow */
+        }
+
+        .logo {
+            position: absolute; /* Absolute positioning */
+            top: var(--line2) ; /* Start at line2 */
+            height: calc(var(--line4) - var(--line2) + 130px); /* Extend to the bottom of proddate */
+            width: 100%; /* Full width of the parent column */
+            text-align: left; /* Align text to the left */
+            overflow: hidden; /* Hide overflow */
+            font-size: 305% !important;
+            bottom:0;
+        }
+
+        .outlined-text {
+            border-color:red;
+            color: transparent; /* Make the text color transparent */
+            text-shadow: 0.5px 0.5px 0 var(--font-colour); /* Thinner white outline */
+        }
+
+        .col2 {
+            width: var(--col2-width); /* Use variable for column width */
+        }
+
+        .col3 {
+            width: var(--col3-width); /* Use variable for column width */
+        }
+
+        .col4 {
+            width: var(--col4-width); /* Use variable for column width */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .webaddress {
+            transform: rotate(-90deg);
+            opacity:0.8;
+            font-size: 15px;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="cover">
+        <div class="column col1">
+            <div class="album-id">{{album_id}}</div>
+            <div class="copyright">{{copright}}C</div>
+            <div class="proddate">/ RELEASED - {{release_date}}</div>
+            <div class="artworkcopy">ARTWORK {{artworkcopy}}</div>
+            <div class="artist-name">{{artist_name}}</div>
+            <div class="track-title">{{track_title}}</div>
+        </div>
+        <div class="column col2"></div>
+        <div class="column col3">
+            <div class="logo">
+                MUISIC<br>
+                ARTIST<br>
+                <span class="outlined-text">MUSIC</span>
+            </div>
+        </div>
+        <div class="column col4">
+            <div class="webaddress">http://artistwebsite.com | http://music.artistwebsite.com</div>
+        </div>
+    </div>
+</body>
+</html>
