@@ -12,7 +12,7 @@ Can be used for Music Cover art generation / banners etc.
 
 3 in the template add any api  variables you wish to send to you template using  - {{my_api_var}}. 
 
-  i.e.   <div class="album-id">{{album_id}}</div>
+    <div class="album-id">{{album_id}}</div>
 
 then in the API you can send this variable - 
 
@@ -51,5 +51,12 @@ As i say, this is still a working progress :)
 
 
 endpoints available  <server url>/docs
+
+
+
+# Screenshot
+
+![Screenshot 2024-10-23 at 18 09 55](https://github.com/user-attachments/assets/abd57ecf-2c95-4e04-829a-b964d3b7c48d)
+
 
 
