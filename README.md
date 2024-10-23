@@ -44,9 +44,15 @@ API auth
 
 Header - X-API-Key: <api key in the .env file>
 
+4. click download image button (if using the GUI) or the API should return the following JSON -
+
+        {
+            "status": "success",
+            "file_url": "https://api.myserver.com/output/1f4c8db8-a604-4daa-bf2d-9548d35a1f78.png"
+        }
 
 
-As i say, this is still a working progress :)
+Any questions (or improvements) get in touch. As i say, this is still a working progress :)
 
 
 
