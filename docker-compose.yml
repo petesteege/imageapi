@@ -26,6 +26,6 @@ services:
     environment:
       - SERVICE_ROLE=webgui
     ports:
-      - 8443:80
+      - 8001:80
     depends_on:
       - imageapi

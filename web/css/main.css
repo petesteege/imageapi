@@ -1,14 +1,61 @@
-:root {
-    --header-height: 80px;
-    --header-sub-height: 30px;
-    --divider-position-left: 80%; /* Initial divider position between top and bottom in left half */
-    --divider-position-right: 70%; /* Initial divider position between top and bottom in right half */
-    --sub-header-font-size:14px;
 
-    --margin-colour:#2A2A2A;
-    --main-col:#131313;
-    --main-col-light:#181818;
-    --border-px:1px;
-    --font-col: rgb(217, 217, 217);
+
+
+/* Root variables */
+:root {
+    --header-height:            50px;
+    --border-px:                1.5px;
+    --main-col:                 #1a1a1a;
+    --margin-colour:            #2c2c2c;
+    --font-col:                 rgb(215, 215, 215);
+    --font-size:                11px;
+    --color-background:         rgb(16, 16, 16);
+    --color-input:              rgba(40, 40, 40, 0.8);
+    --section-header-font-size: 14px;
+
+    --set-code-height:          35%;
+
+    --border-radius:            2px;
+    }
     
+    /* Base styles */
+    body, html {
+        margin:                   0;
+        padding:                  0;
+        font-family:              Arial, sans-serif;
+        font-size:                var(--font-size);
+        overflow:                 hidden;
+        height:                   100vh;
+        background-color:         #111;
+        color:                    var(--font-col);
+    }
+    
+    /* Header */
+    #header {
+        width:                    100%;
+        height:                   var(--header-height);
+        background-color:         var(--main-col);
+        border-bottom:            var(--border-px) solid var(--margin-colour);
+        display:                  flex;
+        align-items:              center;
+        padding-left:             20px;
+        font-size:                16px;
+    }
+
+ 
+
+
+      /* Force monospace font for all Ace editor elements */
+.ace_editor, .ace_editor * {
+    font-family: "Monaco", "Menlo", "Ubuntu Mono", "Droid Sans Mono", "Consolas", monospace !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0 !important;
+    line-height: normal !important;
 }
+
+/* Fix cursor alignment */
+.ace_cursor {
+    border-left: 2px solid #fff !important;
+}
+

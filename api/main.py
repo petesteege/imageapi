@@ -223,7 +223,7 @@ async def render_html_to_file(html_content: str, output_path: str, width: int, h
         raise
 
 # Endpoint to serve generated images
-@app.get("/output/{image_filename}")
+@app.get("/api/output/{image_filename}")
 async def get_generated_image(image_filename: str):
     file_path = os.path.join(OUTPUT_DIR, image_filename)
     if not os.path.exists(file_path):
@@ -246,12 +246,29 @@ async def upload_template(template_id: str, file: UploadFile = File(...)):
 
     return {"status": "success", "message": "Template uploaded successfully"}
 
-# Endpoint to retrieve available templates
+
+# Endpoint to retrieve available templates with creation date
 @app.get("/api/templates")
 def get_templates():
+    from datetime import datetime
+    
     templates_dir = '/app/api/templates'
-    templates = [f[:-5] for f in os.listdir(templates_dir) if f.endswith('.html')]
-    return {"templates": templates}
+    template_list = []
+    
+    for filename in os.listdir(templates_dir):
+        if filename.endswith('.html'):
+            template_path = os.path.join(templates_dir, filename)
+            
+            # Get file creation timestamp and format it
+            creation_time = os.path.getctime(template_path)
+            formatted_date = datetime.fromtimestamp(creation_time).strftime('%Y-%m-%d %H:%M:%S')
+            
+            template_list.append({
+                "name": filename,
+                "created_at_formatted": formatted_date
+            })
+    
+    return {"templates": template_list}
 
 # Optional: Endpoint to download a template
 @app.get("/api/download_template/{template_id}")
@@ -263,12 +280,31 @@ async def download_template(template_id: str):
     return FileResponse(template_path, media_type='text/html', filename=template_filename)
 
 
+# delete template
 
+@app.delete("/api/delete_template/{template_id}")
+async def delete_template(request: Request, template_id: str):
+    # Verify API key from headers
+    await verify_api_key(request)
+    
+    template_filename = f"{template_id}.html"
+    template_path = os.path.join('/app/api/templates', template_filename)
+    
+    if not os.path.exists(template_path):
+        raise HTTPException(status_code=404, detail="Template not found")
+    
+    try:
+        os.remove(template_path)
+        logger.info(f"Template {template_id} deleted successfully.")
+        return {"status": "success", "message": f"Template '{template_id}' deleted successfully"}
+    except Exception as e:
+        logger.error(f"Error deleting template: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Error deleting template: {str(e)}")
 
 # delete images endpoints 
 
 
-@app.get("/delete_image")
+@app.get("/api/delete_image")
 async def delete_image(file: str):
     # Construct the full path
     file_path = os.path.join(IMAGE_DIRECTORY, file)
@@ -281,7 +317,7 @@ async def delete_image(file: str):
         return {"status": "failure", "message": "File not found"}, 404
     
     
-@app.get("/delete_all_images")
+@app.get("/api/delete_all_images")
 async def delete_all_images():
     # Check if the directory exists
     if not os.path.exists(IMAGE_DIRECTORY):
@@ -371,6 +407,7 @@ async def get_config():
         "server_name": os.getenv("SERVER_NAME"),
         "api_key": os.getenv("API_KEY")
     }
+
 
 
 

@@ -1,111 +1,165 @@
-body, html {
-    margin: 0;
-    padding: 0 !important;
-    height: 100%;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
-}
-
-#header {
-    width: 100%;
-    height: var(--header-height);
-    background-color:var(--main-col);
-    border-bottom: var(--border-px) solid var(--margin-colour);
-    color: var(--font-col);
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    
-}
-
-#header-text {
-    font-size: 15px;
-    margin-left: 52px;
-}
-
-
-#html-editor-sub, #json-editor-sub {
-    height: var( --header-sub-height);
-    background-color: var(--main-col);
-    color: rgb(198, 198, 198) !important;
-    font-size: var(--sub-header-font-size);
-    align-items: middle;
-    display:flex;
-    align-items:center;
-    padding-left: 55px;
-}
-
+/* Main container */
 #container {
-    display: flex;
-    height: calc(100vh - ( var(--header-height) - var(--border-px) )); /* Full height minus header */
-    margin-top: var(--header-height); /* Space for header */
+    display:                flex;
+    width:                  100%;
+    height:                 calc(100vh - var(--header-height));
 }
 
-#q1, #q2, #q3, #q4 {
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 !important;
-    padding: 0 !important;  
+/* Panel layouts */
+#left-half, #right-half {
+    width:                  50%;
+    height:                 100%;
+    display:                flex;
+    flex-direction:         column;
 }
-
-#q1 { background-color: #131313; }
-#q2 { background-color: #131313; }
-#q3 { background-color: #131313; }
-#q4 { background-color: #131313; }
-
-
 
 #left-half {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    box-sizing: border-box;
-    border-right: 5px solid#1c1c1c;
+    border-right:           var(--border-px) solid var(--margin-colour);
 }
 
+/* Right half */
 #right-half {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    box-sizing: border-box;
+    min-height:             600px; /* Minimum total height */
+    overflow-y:             auto; /* Add scrollbar when needed */
 }
 
-#q1 {
-    height:  var(--divider-position-left) ; /* Subtract 20px from the variable */
+/* Sections */
+.section-top, .section-bottom {
+    background-color:       #131313;
+    position:               relative;
 }
 
-#q2 {
-    height: calc(100% - var(--divider-position-left) - var(--border-px ) ); /* Bottom adjusts based on top */
+/* Section headers */
+.section-header {
+    height:                 30px;
+    background-color:       var(--main-col);
+    color:                  #c6c6c6;
+    display:                flex;
+    align-items:            center;
+    padding-left:           10px;
 }
 
-#q3 {
-    height: var(--divider-position-right); /* Right half top section */
-}
-
-#q4 {
-    height: calc(100% - var(--divider-position-right) - var(--border-px ) ); /* Right half bottom section */
-}
-
+/* Dividers */
 .divider {
-    height: 5px;
-    background-color: var(--margin-colour);
-    cursor: row-resize;
-    margin: 0;
+    height: var(--border-px);
+    background-color:       #444;
+    cursor:                 row-resize;
+}
+
+/* Tabs section */
+.tabs {
+    background-color:       var(--main-col);
+    border-bottom:          1px solid var(--margin-colour);
+    height:                 35px;
+    display:                flex;
+}
+
+.tab {
+    background-color:       var(--main-col);
+    border:                 1px solid var(--margin-colour);
+    color:                  white;
+    height:                 100%;
+    padding:                0 15px;
+    display:                flex;
+    align-items:            center;
+    cursor:                 pointer;
+}
+
+.tab.active {
+    background-color:       #131313;
+    border-bottom:          5px solid #131313;
+    overflow-y:             scroll;
+
+}
+
+.tab-content {
+    display:                none;
+    padding:                20px;
+    height:                 250px !important;
+    overflow:               visible; /* Don't clip content */
+    min-width:              300px; /* Minimum width before horizontal scrolling */
+    overflow-y:             scroll;
+}
+
+.tab-content.active {
+    display:                block;
+    height:                 250px !important;
+}
+
+/* Ensure tabs section has fixed height */
+#tabs-section {
+    flex:                   0 0 320px; /* Fixed height */
+}
+
+/* Preview section takes remaining space */
+#preview-section {
+    flex:                   1 0 200px; 
+}
+
+/* Ace Editor styles */
+.editor {
+    width:                  100%;
+    height:                 100%;
+    font-size:              14px;
+    line-height:            1.5;
+}
+
+/* Make sure section content fills available space */
+.section-content {
+    height:                 calc(100% - 30px);
+    position:               relative;
+}
+
+.section-header {
+    font-size:              var(--section-header-font-size);
+}
+
+.ace_content {
+    background-color:       var(--color-background) !important;
+    font-size:              12px !important;
 }
 
 
-img#logo {
-    height: 80%;
-    width: auto;
-    margin-left:54px;
+.section-header {
+    display:                flex;
+    justify-content:        space-between;
+    align-items:            center;
+  
+}
+
+.header-buttons {
+    display:                flex;
+
+}
 
 
+/* button class */
+.button {
+    cursor:                 pointer;
+    background-color:       transparent;
+    color:                  rgb(151, 151, 151);
+    border:                 1px solid var(--margin-colour);
+    border-radius:          var(--border-radius);
+    height:                 41px;
+}
+
+.button:hover {
+
+    color:                  rgb(250, 250, 250);
+    border:                 1px solid whitesmoke;
+    background-color:       #555;
+    transition:             background-color 0.2s,border 0.2s;
+}
+
+
+#save-json-data,
+#load-json-data
+ {
+    
+    padding:                8px 21px !important;
+    border:                 none ;
+    border-left:            1px solid var(--margin-colour) !important;
+    color:                  var(--font-col);
+    font-size:              0.9em;
+    height:                 16px !important
 }

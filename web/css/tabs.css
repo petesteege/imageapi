@@ -1,36 +1,242 @@
 
+.list {
+  color: var(--font-col);
+  background-color:   transparent;
+  padding:            10px;
+  font-size:          15px;
+  display:            block;
+  border-radius:      var(--border-radius);
+  border:             1px solid var(--margin-colour);
+  line-height:        2em; 
+  flex-direction:     column !important;
+}
+
+/* If you need to keep flex layout for horizontal items */
+.list.horizontal {
+  display:            flex;
+  flex-wrap:          wrap;
+  gap:                20px;
+}
+
+/* For select elements specifically */
+select.list option {
+  margin-bottom:      8px;
+  padding:            5px 0; 
+}
+
+/* Remove border from last option */
+select.list option:last-child {
+  border-bottom:      none;
+}
+
+/* template list */
 
 
-#q4, .tabbed-section, #tabbed-section{
-    background-color: var(--main-col);
-    color: var(--font-col);
-    height:100%;
+.templates-list-container {
+    float:            left;
+    width:            60%;
+  }
+  
+  .templates-controls {
+    float:            right;
+    width:            35%;
+  }
+  
+  .templates-upload {
+    clear:            both;
+    padding-top:      15px;
+  }
+  
+  #templates-list {
+    display:          flex !important;
+    width:            100%;
+    height:           200px;
+  }
+
+
+  /* templats list buttons */
+  .templates-controls, .image-controls {
+    display:          grid;
+    height:           200px;
+    margin-left:      10px;
+    margin-right:     10px;
+    align-content:    start;
+    gap:              12px;
+}
+
+/* logs output */
+#log-output {
+    width:            96%;
+    height:           200px;
+    border-radius:    var(--border-radius);
+    height:           175px !important;
+    font-size:        10px !important;
 }
 
 
-.tabs {
- background-color:var(--main-col-light);
- border-bottom: var(--border-px) solid var(--margin-colour);
- height: 35px;
- display:block;
 
-    
+/* images tab */
+
+/* image preview */
+.image-list-container {
+  flex: 0 0 190px;
 }
 
-.button {
+.image-preview-container {
 
-    background-color: var(--main-col-light);
-    border: 1px solid var(--margin-colour);
-    color: var(--font-col);
-    height:100%;
-    width: 15%;
-    float:left;
-    z-index: 100;
+    border-radius:    var(--border-radius);
+    width:            200px;
+    min-height:       190px;
+    min-width:        200px;
+    height:           190px;
+    border:           1px solid var(--margin-colour); 
+    display:          flex; 
+    align-items:      center; 
+    justify-content:  center;
 
 }
 
-.tabs button.active {
-    background: var(--main-col);
-    border-bottom:5px solid var(--main-col);
-    color: white;;
+.image-preview-container img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* set image controls width */
+.image-controls {
+    width:             230px;
+}
+
+/* image list */
+#image-list {
+    width:             250px;
+    height:            190px;
+}
+
+
+
+
+.image-row-container {
+  display:              flex;
+  flex-direction:       row;
+  gap:                  20px;
+  align-items:          flex-start;
+}
+
+
+
+
+/* create tab */
+.create-table {
+  width:              97%;
+  border-collapse:    separate;
+  border-spacing:     0 6px;
+  table-layout:       fixed;
+  border:             none !important
+}
+
+.create-table td {
+  padding:            2px 6px;
+  vertical-align:     middle;
+  white-space:        nowrap;
+}
+
+.create-table td:first-child {
+  width:              30px !important;
+  min-width:          30px !important;
+  padding-right:      30px; /* Increase this value as needed */
+
+}
+
+.create-table td:nth-child(2) {
+  width:              20px;
+  text-align:         left;
+}
+
+.create-table td:nth-child(3) {
+  width:              80px;
+}
+
+.create-table td:nth-child(4) {
+  width:              90px;
+  text-align:         right;
+}
+
+.create-table td:nth-child(5) {
+  width: 80px;
+}
+
+.create-table input[type="text"],
+.create-table input[type="number"] {
+  padding:            5px 8px;
+  background-color:   var(--color-input);
+  border:             1px solid var(--margin-colour);
+  border-radius:      var(--border-radius);
+  color:              white;
+}
+
+.create-table input[type="text"] {
+  width:              97.5%;
+}
+
+.create-table input[type="number"] {
+  width:              93.5%;
+}
+
+/* Checkbox styling */
+.create-table input[type="checkbox"] {
+  margin-right:       5px;
+}
+
+/* Make sure buttons fill their cells */
+.create-table .button {
+  width:              100%;
+}
+
+
+/* descriptiuon box */
+
+#template-description {
+  margin-top:         10px;
+  width:              100%;
+  height:             100px !important;
+  background-color:   var(--color-input);
+  border:             1px solid var(--margin-colour);
+  border-radius:      var(--border-radius);
+  color:              var(--font-col);
+  resize:             none;
+}
+
+
+.create-table td {
+  border:             none !important ;
+
+}
+
+
+#about-area {
+height:               200px;
+width:                97%;
+
+color:                var(--font-col);
+
+}
+
+#about-title {
+  font-weight:        200 ;
+  color:              var(--font-col);
+  margin:             20px;
+}
+
+#about-text {
+  font-weight:        100;
+  width:              100%;
+  height:             100% !important;
+  margin:             20px;
+  color:              var(--font-col);
+
+}
+
+#help-link {
+  text-decoration:    none !important;
+  color:              inherit !important; /* or specify a color like #000000 */
 }

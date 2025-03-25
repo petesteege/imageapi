@@ -1,7 +1,0 @@
-#html-editor, #json-editor {
-    height: calc(100% - var(--header-sub-height)); 
-    width: 100%; 
-    left:0; 
-    top: 0;
-
-}

@@ -1,60 +1,49 @@
-
-#preview {
-
-    background-color: var(--main-col);
-
-}
-
-#preview {
-    position: relative;
-    
+/* Preview section styling */
+#preview-section .section-content {
+    background-color: #222;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: scroll;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
+    position: relative;
 }
 
-#rendered-image {
-    border: none;
-    transform-origin: center;
+/* Preview iframe */
+#preview-frame {
     position: absolute;
-    background-color: #f0f0f0;
-    color:black;
+    transform-origin: top left;
+    background-color: white;
+    border: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
-#preview {
-    position: relative; /* Required for absolute positioning */
+/* Preview controls */
+.preview-controls {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 4px;
+    padding: 5px;
+    z-index: 10;
 }
 
-#preview {
-    position: relative; /* Creates a positioning context */
+.preview-controls button {
+    background-color: transparent;
+    color: #ccc;
+    border: 1px solid #444;
+    padding: 4px 8px;
+    margin: 0 2px;
+    font-size: 12px;
 }
 
-#zoom-controls {
-    position: absolute; /* Position it relative to the #preview */
-    bottom: 15px; /* Adjust to move up or down */
-    left: 15px; /* Adjust to move right or left */
-    z-index: 10; /* Ensure it appears above the iframe */
-    padding: 8px;
-    border-radius: 5px;
-    background-color: rgba(131, 129, 129, 0.3);
-    display: flex;
-    flex-direction: column;
+.preview-controls button:hover {
+    background-color: #333;
+    color: white;
+}
+
+/* Placeholder when no preview is available */
+.preview-placeholder {
+    color: #666;
     text-align: center;
-} 
-
-
-#zoom-controls button {
-    margin: 2px; /* Adjust spacing between buttons */
-    font-size: 14px;
-    width: 25px;
-    height:25px;
-    text-align: center;
-    background-color: var(--main-col-light);
-    border-radius: 2px;
-    border: 1px solid var(--margin-col);
-    color: var(--font-col);
+    font-style: italic;
 }
