@@ -65,4 +65,4 @@ endpoints available  <server url>/docs
 
 
 
-![imageapi_screenshot](https://github.com/user-attachments/assets/fa7bddbc-705b-4c25-a423-156a78cb79ae)
+![imageapi_screenshot](https://github.com/user-attachments/assets/cb5c8805-d6b6-4817-a443-c10cafdbdf97)
